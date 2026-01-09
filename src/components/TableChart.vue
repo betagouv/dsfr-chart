@@ -201,7 +201,7 @@ export default {
     },
     getClass(value) {
       let classes = '';
-      if (typeof value === 'string' && value.replace(/<[^>]*>/g, '').length > 132) {
+      if (typeof value === 'string' && this.getTextContentLength(value) > 132) {
         classes += 'text-overflow ';
       }
       if (typeof value === 'number') {
@@ -211,6 +211,18 @@ export default {
       }
 
       return classes;
+    },
+    getTextContentLength(htmlString) {
+      if (typeof htmlString !== 'string') {
+        return 0;
+      }
+      if (typeof document === 'undefined') {
+        // Fallback for non-browser environments: approximate by stripping angle brackets.
+        return htmlString.replace(/<|>/g, '').length;
+      }
+      const div = document.createElement('div');
+      div.innerHTML = htmlString;
+      return (div.textContent || div.innerText || '').length;
     },
   },
 };
