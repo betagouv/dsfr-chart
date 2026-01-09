@@ -81,7 +81,7 @@
     "@storybook/addon-essentials": "^8.6.12",
     "@storybook/blocks": "^8.6.12",
     "@storybook/test": "^8.6.12",
-    "@storybook/web-components": "^8.6.12",
+    "@storybook/web-components": "^10.1.11",
     "@storybook/web-components-vite": "^10.1.11",
     "@types/node": "^25.0.3",
     "@vitejs/plugin-vue": "^6.0.3",
